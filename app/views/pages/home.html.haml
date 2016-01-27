@@ -1,0 +1,25 @@
+%header.navbar.navbar-default.navbar-static-top
+  %nav.container{:role => "navigation"}
+    .navbar-header
+      = link_to 'COYS NEWS', root_path, {class: 'navbar-brand'}
+      %button.navbar-toggle.collapsed{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", :type => "button"}
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+    %ul.nav.navbar-nav.navbar-right.collapse.navbar-collapse
+      %li.dropdown
+        %a.dropdown-toggle{"data-target" => "#", "data-toggle" => "dropdown", :href => "/about"}
+          Articles
+          %span.caret
+        %ul.dropdown-menu{:role => "menu"}
+          %li
+            %a{:href => "#"} Some Articles
+          %li
+            %a{:href => "#"} Some more articles
+          %li.divider
+          %li
+            %a{:href => "#"} Even more articles
+      %li
+        %a{:href => "#"} Predictions
+      %li
+        %a{:href => "#"} Sign in
