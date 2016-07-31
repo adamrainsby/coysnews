@@ -19,20 +19,20 @@
             %span.icon-bar
             %span.icon-bar
         %ul.nav.navbar-nav.navbar-right.collapse.navbar-collapse
-          %li.dropdown
-            %a.dropdown-toggle{"data-target" => "#", "data-toggle" => "dropdown", :href => "/about"}
-              Articles
-              %span.caret
-            %ul.dropdown-menu{:role => "menu"}
-              %li
-                %a{:href => "#"} Some Articles
-              %li
-                %a{:href => "#"} Some more articles
-              %li.divider
-              %li
-                %a{:href => "#"} Even more articles
-          %li
-            %a{:href => "#"} Predictions
+          / %li.dropdown
+          /   %a.dropdown-toggle{"data-target" => "#", "data-toggle" => "dropdown", :href => "/about"}
+          /     Articles
+          /     %span.caret
+          /   %ul.dropdown-menu{:role => "menu"}
+          /     %li
+          /       %a{:href => "#"} Some Articles
+          /     %li
+          /       %a{:href => "#"} Some more articles
+          /     %li.divider
+          /     %li
+          /       %a{:href => "#"} Even more articles
+          / %li
+          /   %a{:href => "#"} Predictions
           %li
             - if current_user
               = link_to 'Sign out', destroy_user_session_path, method: 'delete'
