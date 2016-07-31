@@ -16,6 +16,12 @@ class PredictionsController < ApplicationController
     end
   end
 
+  def edit
+    if @prediction.user != current_user
+      redirect_to root_path
+    end
+  end
+
   def update
     if @prediction.update prediction_form_fields
       redirect_to root_path
