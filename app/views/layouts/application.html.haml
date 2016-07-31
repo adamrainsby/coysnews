@@ -1,0 +1,42 @@
+!!!
+%html
+  %head
+    %meta{charset: "utf-8"}/
+    %meta{content: "IE=edge", "http-equiv" => "X-UA-Compatible"}/
+    %meta{content: "width=device-width, initial-scale=1", name: "viewport"}/
+    %title Coysnews
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+    = render 'layouts/flash_messages'
+    %header.navbar.navbar-default.navbar-static-top
+      %nav.container{:role => "navigation"}
+        .navbar-header
+          = link_to 'COYS NEWS', root_path, {class: 'navbar-brand'}
+          %button.navbar-toggle.collapsed{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", :type => "button"}
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+        %ul.nav.navbar-nav.navbar-right.collapse.navbar-collapse
+          %li.dropdown
+            %a.dropdown-toggle{"data-target" => "#", "data-toggle" => "dropdown", :href => "/about"}
+              Articles
+              %span.caret
+            %ul.dropdown-menu{:role => "menu"}
+              %li
+                %a{:href => "#"} Some Articles
+              %li
+                %a{:href => "#"} Some more articles
+              %li.divider
+              %li
+                %a{:href => "#"} Even more articles
+          %li
+            %a{:href => "#"} Predictions
+          %li
+            - if current_user
+              = link_to 'Sign out', destroy_user_session_path, method: 'delete'
+            - else
+              = link_to 'Sign in', new_user_session_path
+    .container
+      = yield

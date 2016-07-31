@@ -32,6 +32,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'puma'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'haml'
+gem 'devise-bootstrap-views'
 
 gem 'devise'
 
