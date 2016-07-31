@@ -17,10 +17,10 @@ class CreateMatches < ActiveRecord::Migration
     stoke = Club.find_by name: 'Stoke City'
     sunderland = Club.find_by name: 'Sunderland'
 
-    Match.create home_team: everton, away_team: tottenham, kick_off: Time.parse('13/08/2016 13:00')
-    Match.create home_team: tottenham, away_team: crystal_palace, kick_off: Time.parse('20/08/2016 15:00')
-    Match.create home_team: tottenham, away_team: liverpool, kick_off: Time.parse('27/08/2016 12:30')
-    Match.create home_team: stoke, away_team: tottenham, kick_off: Time.parse('10/09/2016 15:00')
-    Match.create home_team: tottenham, away_team: sunderland, kick_off: Time.parse('18/09/2016 16:30')
+    Match.create home_team: everton, away_team: tottenham, kick_off: Time.zone.parse('13/08/2016 13:00')
+    Match.create home_team: tottenham, away_team: crystal_palace, kick_off: Time.zone.parse('20/08/2016 15:00')
+    Match.create home_team: tottenham, away_team: liverpool, kick_off: Time.zone.parse('27/08/2016 12:30')
+    Match.create home_team: stoke, away_team: tottenham, kick_off: Time.zone.parse('10/09/2016 15:00')
+    Match.create home_team: tottenham, away_team: sunderland, kick_off: Time.zone.parse('18/09/2016 16:30')
   end
 end

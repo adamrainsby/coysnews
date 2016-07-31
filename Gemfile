@@ -33,6 +33,8 @@ gem 'puma'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'haml'
 gem 'devise-bootstrap-views'
+gem 'simple_form'
+gem 'draper', '~> 2.1.0'
 
 gem 'devise'
 

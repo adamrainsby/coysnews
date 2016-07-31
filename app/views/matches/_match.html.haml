@@ -1,5 +1,11 @@
-%a.list-group-item.text-center{href: '#', class: match.next_match? ? 'active' : ''}
+- if current_user
+  - prediction = current_user.prediction_for match
+%a.list-group-item.text-center{href: prediction ? edit_match_prediction_path(match, prediction) : new_match_prediction_path(match) , class: match.next_match? ? 'active large' : ''}
+  %p.list-group-item-text
+    Kick off:
+    = match.decorate.kick_off_date_and_time
   %h4.list-group-item-heading
     = "#{match.home_team.name} V #{match.away_team.name}"
   %p.list-group-item-text
-    Some shit about the game
+    - if prediction
+      = prediction.decorate.summary
