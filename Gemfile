@@ -37,6 +37,7 @@ gem 'simple_form'
 gem 'draper', '~> 2.1.0'
 
 gem 'devise'
+gem 'exception_notification'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
