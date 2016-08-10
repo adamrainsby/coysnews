@@ -68,14 +68,6 @@ Rails.application.configure do
   # the I18n.default_locale when a translation cannot be found).
   config.i18n.fallbacks = true
 
-  Rails.application.config.middleware.use ExceptionNotification::Rack,
-  :email => {
-    :deliver_with => :deliver, # Rails >= 4.2.1 do not need this option since it defaults to :deliver_now
-    :email_prefix => "[PREFIX] ",
-    :sender_address => %{"notifier" <notifier@coysnews.com>},
-    :exception_recipients => %w{adamrainsby@live.co.uk}
-  }
-
   ActionMailer::Base.smtp_settings = {
     :address        => 'smtp.sendgrid.net',
     :port           => '587',
@@ -84,6 +76,14 @@ Rails.application.configure do
     :password       => ENV['SENDGRID_PASSWORD'],
     :domain         => 'heroku.com',
     :enable_starttls_auto => true
+  }
+
+  Rails.application.config.middleware.use ExceptionNotification::Rack,
+  :email => {
+    :deliver_with => :deliver, # Rails >= 4.2.1 do not need this option since it defaults to :deliver_now
+    :email_prefix => "[PREFIX] ",
+    :sender_address => %{"notifier" <notifier@coysnews.com>},
+    :exception_recipients => %w{adamrainsby@live.co.uk}
   }
 
   # Send deprecation notices to registered listeners.
