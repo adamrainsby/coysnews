@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160731005717) do
+ActiveRecord::Schema.define(version: 20160811222433) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20160731005717) do
     t.integer "home_team_goals"
     t.integer "away_team_goals"
     t.integer "user_id"
+    t.integer "points",          default: 0
   end
 
   add_index "predictions", ["match_id"], name: "index_predictions_on_match_id", using: :btree

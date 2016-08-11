@@ -31,8 +31,8 @@
           /     %li.divider
           /     %li
           /       %a{:href => "#"} Even more articles
-          / %li
-          /   %a{:href => "#"} Predictions
+          %li
+            = link_to 'Prediction League Table', table_path
           %li
             - if current_user
               = link_to 'Sign out', destroy_user_session_path, method: 'delete'

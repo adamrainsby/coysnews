@@ -22,6 +22,14 @@ class Match < ActiveRecord::Base
     end
   end
 
+  def update_score home_goals, away_goals
+    self.update home_team_goals: home_goals, away_team_goals: away_goals
+
+    predictions.each do |prediction|
+      prediction.update_points!
+    end
+  end
+
   private
 
   def win? home_goals, away_goals

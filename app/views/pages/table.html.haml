@@ -1,0 +1,15 @@
+%table.table.table-striped
+  %th
+    Position
+  %th
+    User
+  %th
+    Points
+  - @users.each do |user, index|
+    %tr
+      %td
+        = index + 1
+      %td
+        = user.email
+      %td
+        = user.points

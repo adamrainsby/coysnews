@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
 
+  get 'table', to: 'pages#table'
+
   resources :matches, only: [] do
     resources :predictions, except: :destroy
   end

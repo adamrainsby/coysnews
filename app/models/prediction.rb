@@ -10,4 +10,32 @@ class Prediction < ActiveRecord::Base
   def result?
     match.result? home_team_goals, away_team_goals
   end
+
+  def update_points!
+    if correct_score?
+      self.update points: 3
+    elsif correct_result?
+      self.update points: 1
+    else
+      self.update points: 0
+    end
+  end
+
+  private
+
+  def correct_score?
+    if home_team_goals == match.home_team_goals && away_team_goals == match.away_team_goals
+      true
+    else
+      false
+    end
+  end
+
+  def correct_result?
+    if result? == match.result?
+      true
+    else
+      false
+    end
+  end
 end
