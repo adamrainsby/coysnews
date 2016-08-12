@@ -6,7 +6,7 @@
   %th
     Points
   - @users.each do |user, index|
-    %tr
+    %tr{class: user == current_user ? 'highlight' : ''}
       %td
         = index + 1
       %td

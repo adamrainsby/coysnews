@@ -34,6 +34,10 @@
           /       %a{:href => "#"} Even more articles
           %li
             = link_to 'Prediction League Table', table_path
+
+          - if !current_user
+            %li
+              = link_to 'Sign up', new_user_registration_path
           %li
             - if current_user
               = link_to 'Sign out', destroy_user_session_path, method: 'delete'
