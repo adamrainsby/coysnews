@@ -1,6 +1,10 @@
 - if current_user
   - prediction = current_user.prediction_for match
-%a.list-group-item.text-center{href: prediction ? edit_match_prediction_path(match, prediction) : new_match_prediction_path(match) , class: match.next_match? ? 'active large' : ''}
+  - if match.has_started?
+    - link = '#'
+  - else
+    - link = prediction ? edit_match_prediction_path(match, prediction) : new_match_prediction_path(match)
+%a.list-group-item.text-center{href: link, class: match.next_match? ? 'active large' : ''}
   %p.list-group-item-text
     Kick off:
     = match.decorate.kick_off_date_and_time

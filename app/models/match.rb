@@ -30,6 +30,10 @@ class Match < ActiveRecord::Base
     end
   end
 
+  def has_started?
+    kick_off < Time.now
+  end
+
   private
 
   def win? home_goals, away_goals

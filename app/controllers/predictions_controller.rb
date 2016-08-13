@@ -1,5 +1,6 @@
 class PredictionsController < ApplicationController
   before_action :authenticate_user!
+  before_action :check_if_match_has_started
   before_action :find_prediction, only: [:edit, :update]
 
   def new
@@ -31,6 +32,13 @@ class PredictionsController < ApplicationController
   end
 
   private
+
+  def check_if_match_has_started
+    if Match.find(params[:match_id]).has_started?
+      flash[:danger] = 'This match has started.'
+      redirect_to root_path
+    end
+  end
 
   def find_prediction
     @prediction = Prediction.find params[:id]
