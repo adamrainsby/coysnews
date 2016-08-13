@@ -8,6 +8,8 @@ class Match < ActiveRecord::Base
 
   scope :upcoming, -> { where('kick_off > ?', Time.now - 3.hours).order(:kick_off) }
 
+  include ArrayStats
+
   def next_match?
     Match.upcoming.first.id == id
   end
@@ -32,6 +34,13 @@ class Match < ActiveRecord::Base
 
   def has_started?
     kick_off < Time.now
+  end
+
+  def average_prediction
+    [
+      median(predictions.pluck(:home_team_goals)).round,
+      median(predictions.pluck(:away_team_goals)).round
+    ]
   end
 
   private
