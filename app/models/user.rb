@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   class << self
     def users_ordered_by_points
       self.includes(:predictions).to_a.sort do |user_a, user_b|
-        user_a.points <=> user_b.points
+        user_b.points <=> user_a.points
       end
     end
   end
