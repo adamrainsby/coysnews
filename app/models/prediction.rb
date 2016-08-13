@@ -5,8 +5,8 @@ class Prediction < ActiveRecord::Base
   validates :match, presence: true
   validates :home_team_goals, presence: true
   validates :away_team_goals, presence: true
-  validates :home_team_goals, numericality: { greater_than: 0 }
-  validates :away_team_goals, numericality: { greater_than: 0 }
+  validates :home_team_goals, numericality: { greater_than_or_equal_to: 0 }
+  validates :away_team_goals, numericality: { greater_than_or_equal_to: 0 }
   validates :match_id, uniqueness: { scope: [:user_id] }
 
   def result?
