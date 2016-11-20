@@ -7,6 +7,7 @@ class Match < ActiveRecord::Base
   validates :away_team, presence: true
 
   scope :upcoming, -> { where('kick_off > ?', Time.now - 3.hours).order(:kick_off) }
+  scope :pending_score_update, -> { where('kick_off < ? AND home_team_goals IS NULL OR away_team_goals IS NULL', Time.now - 3.hours).order(:kick_off) }
 
   include ArrayStats
 

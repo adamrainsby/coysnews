@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   def home
-    @matches = Match.upcoming
+    @matches = Match.upcoming.first(5)
   end
 
   def table
