@@ -14,9 +14,9 @@ class ResultScraper
 
         next if matching_results.count == 0
 
-        match.update(
-          home_team_goals: matching_results.first[:home_team_goals],
-          away_team_goals: matching_results.first[:away_team_goals]
+        match.update_score(
+          matching_results.first[:home_team_goals],
+          matching_results.first[:away_team_goals]
         )
       end
     end
